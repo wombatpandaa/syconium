@@ -1,14 +1,20 @@
 # This is a fig, or configuration file. Variables stored here are fed into syconate, which only processes what it "sees". So if you don't want it to "see" something, comment it out.
 
-# Adds a user named username if uncommented
+# Modifies access control list according to acldict if uncommented (Module 4)
+acldict = []
+
+# Adds a user named username if uncommented (Module 10)
 username = "Tim Fortnite"
 
-# Adds a new partition named diskpartname if uncommented
+# Adds a new partition named diskpartname if uncommented (Module 5)
 diskpartname = "Muffin Recipes"
 
-# Changes the time zone to timezone if uncommented
+# Changes the time zone to timezone if uncommented (Module 8)
 timezone = "New York"
 
-# Clones a git repository at url giturl to folder gitfolder if uncommented
+# Clones a git repository at url giturl to folder gitfolder if uncommented (Module 7)
 giturl = "https://github.com/wombatpandaa/Lokalise-source"
 gitfolder = "home/git/lolcode"
+
+# Adds a printer named printername to Common Unix Printer System (CUPS) if uncommented (Module 10)
+printername = "Epson 2100"
