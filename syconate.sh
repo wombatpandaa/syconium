@@ -4,13 +4,13 @@ echo "This is a script that executes according to the fig it is fed."
 
 # Pre-scans for any figs
 echo "Scanning for figs..."
-default_fig = $(find . -maxdepth 1 -type f -name "*.fig")
+declare default_fig = $(find . -maxdepth 1 -type f -name "*.fig")
 if [[ ! -z $default_fig ]]; then
   echo "Fig found!"
 fi
 
 # Prompts the user for a fig
-current_fig = $(read -p "Which fig do you wish to use? Press enter to use $default_fig or type in a different fig name like so: example.fig")
+declare current_fig = $(read -p "Which fig do you wish to use? Press enter to use $default_fig or type in a different fig name like so: example.fig")
 
 # Checks user input
 if [[ -z $current_fig ]]; then
