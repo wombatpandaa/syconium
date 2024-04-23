@@ -1,0 +1,4 @@
+# This is a fig, or configuration file. Variables stored here are fed into syconate, which only processes what it "sees". So if you don't want it to "see" something, comment it out.
+
+# ACL goes here
+
