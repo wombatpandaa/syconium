@@ -1,0 +1,14 @@
+# This is a fig, or configuration file. Variables stored here are fed into syconate, which only processes what it "sees". So if you don't want it to "see" something, comment it out.
+
+# Adds a user named username if uncommented
+username = "Tim Fortnite"
+
+# Adds a new partition named diskpartname if uncommented
+diskpartname = "Muffin Recipes"
+
+# Changes the time zone to timezone if uncommented
+timezone = "New York"
+
+# Clones a git repository at url giturl to folder gitfolder if uncommented
+giturl = "https://github.com/wombatpandaa/Lokalise-source"
+gitfolder = "home/git/lolcode"
