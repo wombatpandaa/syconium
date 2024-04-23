@@ -5,6 +5,7 @@ echo "This is a script that executes according to the fig it is fed."
 # Pre-scans for any figs
 echo "Scanning for figs..."
 find . -maxdepth 1 -type f -name "*.fig" | declare default_fig
+echo "$default_fig"
 if [[ ! -z $default_fig ]]; then
   echo "Fig found!"
 fi
