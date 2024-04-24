@@ -29,7 +29,7 @@ current_fig=${scanned_figs[0]}
 #shellcheck source=. #This is only used by shellcheck
 source $current_fig
 
-# Creates a user if the current fig asks for it
+# Creates a user if the current fig asks for it (Module 10)
 if [[ $username && $pswd ]]; then
   echo "Adding user $username with dummy password"
   sudo useradd $username
@@ -38,7 +38,7 @@ if [[ $username && $pswd ]]; then
   sudo chage -l $username
 fi
 
-# Modifies access control list for a user if the current fig asks for it
+# Modifies access control list for a user if the current fig asks for it (Module 4)
 if [[ $hideuser && $hidedir ]]; then
   echo "Making a hidden directory $hidedir for $hideuser"
   if [[ $hidedir ]]; then
@@ -51,4 +51,16 @@ if [[ $hideuser && $hidedir ]]; then
   sudo setfacl -m o::--- $hidedir
   sudo setfacl -m u:$hideuser:rwx $hidedir
   getfacl $hidedir
+fi
+
+if [[ $newdir ]]; then
+  echo "Copying files from USB into new directory $newdir"
+  mkdir $newdir
+  if [[ ! -d /mnt/usb ]]; then
+    mkdir /mnt/usb
+  fi
+  sudo mount /dev/sdb1 /mnt/usb
+  cd /mnt/usb || return
+  cp -r * $newdir
+  ls $newdir
 fi
