@@ -59,11 +59,11 @@ if [[ $newdir ]]; then
   echo "Copying files from USB into new directory $newdir"
   # Makes newdir, grabs working directory
   if [[ -d $newdir ]]; then
-    rmdir $newdir
+    rmdir -r $newdir
   fi
   mkdir $newdir
   fullpath="$(pwd)/$newdir" # Combines above into one path
-  echo "Current fullpath is $fullpath"
+  #echo "Current fullpath is $fullpath"
   # If mount point doesn't exist, create it
   if [[ ! -d /mnt/usb ]]; then
     mkdir /mnt/usb
