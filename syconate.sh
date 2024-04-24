@@ -47,8 +47,8 @@ if [[ $hideuser && $hidedir ]]; then
   mkdir $hidedir
   sudo chown $hideuser $hidedir
   sudo chmod 700 $hidedir
-  setfacl -m g::--- $hidedir
-  setfacl -m o::--- $hidedir
-  setfacl -m u:$hideuser:rwx $hidedir
+  sudo setfacl -m g::--- $hidedir
+  sudo setfacl -m o::--- $hidedir
+  sudo setfacl -m u:$hideuser:rwx $hidedir
   getfacl $hidedir
 fi
