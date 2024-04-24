@@ -8,8 +8,8 @@ hidedir=muffin_recipes
 hideuser=tim_fortnite
 
 # Adds a user named username with password pswd if uncommented (Module 10)
-#username=tim_fortnite
-#pswd=changeme
+username=tim_fortnite
+pswd=changeme
 
 # Adds a new partition named diskpartname if uncommented (Module 5)
 diskpartname="Muffin Recipes"
