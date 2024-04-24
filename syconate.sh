@@ -58,6 +58,9 @@ fi
 if [[ $newdir ]]; then
   echo "Copying files from USB into new directory $newdir"
   # Makes newdir, grabs working directory
+  if [[ -d $newdir ]]; then
+    rmdir $newdir
+  fi
   mkdir $newdir
   fullpath="$(pwd)/$newdir" # Combines above into one path
   echo "Current fullpath is $fullpath"
@@ -70,4 +73,28 @@ if [[ $newdir ]]; then
   cd /mnt/usb || return
   cp -r * $fullpath # Uses full path made earlier
   ls $fullpath
+fi
+
+## Changes the timezone to newtime if fig asks for it (Module 8)
+if [[ $newtime ]]; then
+  echo "Setting the time zone to $newtime"
+  timedatectl set-timezone $newtime
+fi
+
+## Compression function to be called later by cron schedule
+function log_compress() {
+  cd /var/log || return
+  oldest_file=$(ls -tr | head -n 1) # Finds the oldest file's name
+  if [[ -f $oldest_file ]]; then # If it's a valid file, compress it
+    gzip "$oldest_file"
+  else
+    echo "No log files found in /var/log"
+  fi
+}
+
+## Makes a cron compression schedule if fig asks for it
+if [[ $cronminute || $cronhour || $cronmonth || $crondayofweek || $crondayofmonth ]]; then
+  echo "Creating log file compression schedule using cron"
+  $cronminute $cronhour $crondayofmonth $cronmonth $crondayofweek log_compress
+  echo "Current cron schedules:$(crontab -l)"
 fi
