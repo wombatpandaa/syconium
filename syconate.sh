@@ -57,8 +57,10 @@ fi
 ## Copies files from a USB to a directory if fig asks for it (Module 5)
 if [[ $newdir ]]; then
   echo "Copying files from USB into new directory $newdir"
-  mkdir $newdir
-  fullpath="$(pwd)/$newdir" # Combines above into one path
+  # Makes newdir, grabs working directory
+  mkdir $newdir && dirpath=$(pwd)
+  fullpath="$newdir/$dirpath" # Combines above into one path
+  echo "Current fullpath is $fullpath"
   # If mount point doesn't exist, create it
   if [[ ! -d /mnt/usb ]]; then
     mkdir /mnt/usb
