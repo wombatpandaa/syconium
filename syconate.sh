@@ -102,7 +102,7 @@ fi
 ## Adds a git user if fig asks for it (Module 7)
 if [[ $gituser && $gitmail ]]; then
   echo "Setting git user email to $gitmail and user name to $gituser"
-  git config --global user.email $gitmail
-  git config --global user.name $gituser
+  git config --global --replace-all user.email $gitmail
+  git config --global --replace-all user.name $gituser
   cat ~/.gitconfig
 fi
