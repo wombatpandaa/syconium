@@ -1,0 +1,32 @@
+#!/bin/#!/usr/bin/env bash
+# shellcheck disable=SC2034 #All variables are exported
+
+# This is the "master fig," containing every possible configuration setting.
+# It is accessed only by agaonid.sh to create custom figs
+
+# Makes a hidden directory hidedir that only the user hideuser can access if uncommented (Module 4)
+make_hidden_directory="hidedir=muffin_recipes\nhideuser=tim_fortnite"
+
+# Adds a user named username with password pswd if uncommented (Module 10)
+user_add="username=tim_fortnite\npswd=changeme"
+
+# Adds a new partition named diskpartname if uncommented (Module 5)
+part_disk="diskpartname=\"Muffin Recipes\""
+
+# Changes the time zone to newtime if uncommented (Module 8)
+timezone_change="newtime=\"Asia/Yekaterinburg\""
+
+# Adds to git a user email gitmail and user gituser if uncommented (Module 7)
+add_gituser="gitmail=\"chadjpeterson21@gmail.com\"\ngituser=\"cjpeterson\""
+
+# Clones a git repository at url giturl to folder gitfolder if uncommented (Module 7)
+clone_repo="giturl=\"https://github.com/wombatpandaa/Lokalise-source\"\ngitfolder=\"home/git/lolcode\""
+
+# Adds a printer named printername to Common Unix Printer System (CUPS) if uncommented (Module 10)
+add_printer="printername=\"Epson 2100\""
+
+# Mounts a usb device and copies files into a new folder newdir if uncoemmented (Module 5)
+copy_usb="newdir=extremely_important"
+
+# Makes a cron schedule to compress log files at the time specified if uncommented (Modules 9 & 11)
+add_compress_schedule="cronminute=30\ncronhour=23\ncrondayofmonth=15,30\ncronmonth=\"*\"\ncrondayofweek=\"*\""
