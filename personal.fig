@@ -19,7 +19,7 @@ newtime="Asia/Yekaterinburg"
 
 # Adds to git a user email gitmail and user gituser if uncommented (Module 7)
 gitmail="chadjpeterson21@gmail.com"
-gituser="Chad Peterson"
+gituser="cjpeterson"
 
 # Clones a git repository at url giturl to folder gitfolder if uncommented (Module 7)
 giturl="https://github.com/wombatpandaa/Lokalise-source"
