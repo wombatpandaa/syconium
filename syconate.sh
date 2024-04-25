@@ -72,7 +72,7 @@ if [[ $newdir ]]; then
   sudo mount /dev/sdb1 /mnt/usb
   cd /mnt/usb || return
   cp -r * $fullpath # Uses full path made earlier
-  ls $fullpath
+  #ls $fullpath
 fi
 
 ## Changes the timezone to newtime if fig asks for it (Module 8)
@@ -84,7 +84,7 @@ fi
 ## Compression function to be called later by cron schedule
 function log_compress() {
   cd /var/log || return
-  oldest_file=$(ls -tr | head -n 1) # Finds the oldest file's name
+  oldest_file=$(find . -maxdepth 1 -type f -printf '%T@ %p\n' | sort -n | head -n 1 | cut -d' ' -f2) # Finds the oldest file's name
   if [[ -f $oldest_file ]]; then # If it's a valid file, compress it
     gzip "$oldest_file"
   else
@@ -95,6 +95,6 @@ function log_compress() {
 ## Makes a cron compression schedule if fig asks for it
 if [[ $cronminute || $cronhour || $cronmonth || $crondayofweek || $crondayofmonth ]]; then
   echo "Creating log file compression schedule using cron"
-  $cronminute $cronhour $crondayofmonth $cronmonth $crondayofweek log_compress
+  (crontab -l 2>/dev/null; echo "$cronminute $cronhour $crondayofmonth $cronmonth $crondayofweek log_compress") | crontab -
   echo "Current cron schedules:$(crontab -l)"
 fi
