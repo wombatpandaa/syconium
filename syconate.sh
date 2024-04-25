@@ -81,7 +81,7 @@ if [[ $newtime ]]; then
   timedatectl set-timezone $newtime
 fi
 
-## Compression function to be called later by cron schedule
+## Compression function to be called later by cron schedule (Module 11)
 function log_compress() {
   cd /var/log || return
   oldest_file=$(find . -maxdepth 1 -type f -printf '%T@ %p\n' | sort -n | head -n 1 | cut -d' ' -f2) # Finds the oldest file's name
@@ -92,9 +92,17 @@ function log_compress() {
   fi
 }
 
-## Makes a cron compression schedule if fig asks for it
+## Makes a cron compression schedule if fig asks for it (Module 9)
 if [[ $cronminute || $cronhour || $cronmonth || $crondayofweek || $crondayofmonth ]]; then
   echo "Creating log file compression schedule using cron"
   (crontab -l 2>/dev/null; echo "$cronminute $cronhour $crondayofmonth $cronmonth $crondayofweek log_compress") | crontab -
   echo "Current cron schedules:$(crontab -l)"
+fi
+
+## Adds a git user if fig asks for it (Module 7)
+if [[ $gituser && $gitmail ]]; then
+  echo "Setting git user email to $gitmail and user name to $gituser"
+  git config --global user.email $gitmail
+  git config --global user.name $gituser
+  cat ~/.gitconfig
 fi
