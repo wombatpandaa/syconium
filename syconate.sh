@@ -79,6 +79,7 @@ fi
 if [[ $newtime ]]; then
   echo "Setting the time zone to $newtime"
   timedatectl set-timezone $newtime
+  timedatectl status
 fi
 
 ## Compression function to be called later by cron schedule (Module 11)
