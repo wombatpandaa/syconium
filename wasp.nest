@@ -10,7 +10,7 @@ make_hidden_directory="hidedir=muffin_recipes\nhideuser=tim_fortnite"
 # Adds a user named username with password pswd if uncommented (Module 10)
 user_add="username=tim_fortnite\npswd=changeme"
 
-# Adds a new partition named diskpartname if uncommented (Module 5)
+# Adds a new partition named diskpartname if uncommented (function undefined - for demonstration only)
 part_disk="diskpartname=\"Muffin Recipes\""
 
 # Changes the time zone to newtime if uncommented (Module 8)
@@ -19,10 +19,10 @@ timezone_change="newtime=\"Asia/Yekaterinburg\""
 # Adds to git a user email gitmail and user gituser if uncommented (Module 7)
 add_gituser="gitmail=\"chadjpeterson21@gmail.com\"\ngituser=\"cjpeterson\""
 
-# Clones a git repository at url giturl to folder gitfolder if uncommented (Module 7)
+# Clones a git repository at url giturl to folder gitfolder if uncommented (function undefined - for demonstration only)
 clone_repo="giturl=\"https://github.com/wombatpandaa/Lokalise-source\"\ngitfolder=\"home/git/lolcode\""
 
-# Adds a printer named printername to Common Unix Printer System (CUPS) if uncommented (Module 10)
+# Adds a printer named printername to Common Unix Printer System (CUPS) if uncommented (function undefined - for demonstration only)
 add_printer="printername=\"Epson 2100\""
 
 # Mounts a usb device and copies files into a new folder newdir if uncoemmented (Module 5)
