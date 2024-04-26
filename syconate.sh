@@ -66,7 +66,7 @@ if [[ $newdir ]]; then
   #echo "Current fullpath is $fullpath"
   # If mount point doesn't exist, create it
   if [[ ! -d /mnt/usb ]]; then
-    mkdir /mnt/usb
+    sudo mkdir /mnt/usb
   fi
   # Mount USB and copy files
   sudo mount /dev/sdb1 /mnt/usb
